@@ -22,4 +22,14 @@ internal static class AppConfiguration
             options.SwaggerDoc("v1", new OpenApiInfo { Title = "Inventory Management API", Version = "v1" });
         });
     }
+
+    public static void EnableSwagger(IApplicationBuilder app)
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventory Management API");
+            options.RoutePrefix = string.Empty;
+        });
+    }
 }

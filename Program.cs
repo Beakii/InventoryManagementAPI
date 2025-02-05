@@ -11,12 +11,7 @@ AppConfiguration.AddSwagger(builder.Services);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.UseSwagger();
-app.UseSwaggerUI(options =>
-{
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Inventory Management API");
-    options.RoutePrefix = string.Empty;
-});
+AppConfiguration.EnableSwagger(app);
 
 app.UseRouting();
 app.MapControllers();
