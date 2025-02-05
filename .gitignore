@@ -398,3 +398,77 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Rider-specific files
+.idea/
+.idea/.idea.Rider/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/shelf/
+
+# Build artifacts
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.app/
+*.ipa
+*.iobj
+*.ipdb
+*.ilk
+*.map
+*.so
+*.rsp
+*.manifest
+*.tlog
+*.csproj.user
+*.dotCover
+*.ncrunch*
+*.nvuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Package dependencies
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+.nuget/
+
+# Logs and user-generated files
+*.log
+*.vs/
+.vscode/
+.env
+.env.local
+secrets.json
+
+# Rider run configurations (optional, ignore unless you want to share them)
+.idea/runConfigurations/
+
+# Coverage and test results
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# ReSharper settings (if using)
+_ReSharper.Caches/
+
+# Rider caches
+.idea/modules.xml
+.idea/indexLayout.xml
+.idea/.idea.Rider/
+
+# Temporary files
+*.tmp
+*.cache
+*.bak
+*.swp
+*.swo
+
