@@ -12,6 +12,7 @@ public class SupplierController(InventoryDbContext context) : Controller
 {
     private readonly DbSet<Supplier> _suppliers = context.Suppliers;
 
+    [HttpGet]
     public IActionResult Index()
     {
         return Ok("Supplier API controller is up and running.");

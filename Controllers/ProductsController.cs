@@ -13,6 +13,7 @@ public class ProductsController(InventoryDbContext context) : Controller
 {
     private readonly DbSet<Product> _products = context.Products;
     
+    [HttpGet]
     public IActionResult Index()
     {
         return Ok("Product API controller is up and running.");
