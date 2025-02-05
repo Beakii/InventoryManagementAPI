@@ -13,11 +13,6 @@ public class ProductsController(InventoryDbContext context) : Controller
 {
     private readonly DbSet<Product> _products = context.Products;
     
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return Ok("Product API controller is up and running.");
-    }
     
     //GET Requests
     [HttpGet]
@@ -67,6 +62,7 @@ public class ProductsController(InventoryDbContext context) : Controller
         product.SKU = updatedProduct.SKU;
         product.Price = updatedProduct.Price;
         product.Stock = updatedProduct.Stock;
+        product.Supplier = updatedProduct.Supplier;
         
         _products.Update(product);
         context.SaveChanges();

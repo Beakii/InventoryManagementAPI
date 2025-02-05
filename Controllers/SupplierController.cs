@@ -11,13 +11,8 @@ namespace InventoryManagement.Controllers;
 public class SupplierController(InventoryDbContext context) : Controller
 {
     private readonly DbSet<Supplier> _suppliers = context.Suppliers;
-
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return Ok("Supplier API controller is up and running.");
-    }
-
+    
+    
     //GET Requests
     [HttpGet]
     public IActionResult GetAllSuppliers()
@@ -51,6 +46,7 @@ public class SupplierController(InventoryDbContext context) : Controller
         
         return CreatedAtAction(nameof(Index), newSupplier);
     }
+    
     
     //PUT Requests
     [HttpPut]
@@ -113,7 +109,6 @@ public class SupplierController(InventoryDbContext context) : Controller
             
         return Ok(supplier);
     }
-    
     
     [HttpDelete]
     public IActionResult DeleteByName(string name)
