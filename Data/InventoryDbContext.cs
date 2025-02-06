@@ -7,6 +7,7 @@ public class InventoryDbContext(DbContextOptions<InventoryDbContext> options) : 
 {
     public DbSet<Product> Products { get; set; }
     public DbSet<Supplier> Suppliers { get; set; }
+    public DbSet<Sales> Sales { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
