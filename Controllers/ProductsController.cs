@@ -12,6 +12,7 @@ namespace InventoryManagement.Controllers;
 public class ProductsController(InventoryDbContext context) : Controller
 {
     private readonly DbSet<Product> _products = context.Products;
+    private readonly DbSet<Supplier> _suppliers = context.Suppliers;
     
     
     //GET Requests
@@ -42,10 +43,15 @@ public class ProductsController(InventoryDbContext context) : Controller
     [HttpPost]
     public IActionResult Add([FromBody] Product newProduct)
     {
+        var supplier = _suppliers.FirstOrDefault(p => p.Name == newProduct.SupplierName);
+        if (supplier == null) return NotFound("No such supplier");
+        
+        newProduct.Supplier = supplier;
+        
         _products.Add(newProduct);
         context.SaveChanges();
         
-        return CreatedAtAction(nameof(Index), newProduct);
+        return Ok(newProduct);
     }
     
 
@@ -63,6 +69,7 @@ public class ProductsController(InventoryDbContext context) : Controller
         product.Price = updatedProduct.Price;
         product.Stock = updatedProduct.Stock;
         product.Supplier = updatedProduct.Supplier;
+        product.SupplierName = updatedProduct.SupplierName;
         
         _products.Update(product);
         context.SaveChanges();

@@ -44,7 +44,7 @@ public class SupplierController(InventoryDbContext context) : Controller
         _suppliers.Add(newSupplier);
         context.SaveChanges();
         
-        return CreatedAtAction(nameof(Index), newSupplier);
+        return Ok(newSupplier);
     }
     
     
